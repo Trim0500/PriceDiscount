@@ -3,7 +3,7 @@
 *@
 @model Price
 @{
-    Layout = null;
+    ViewBag.Title = "Price Discount Calculator";
 }
 <!DOCTYPE html>
 <html>
@@ -14,6 +14,7 @@
     <body>
         <h1>Price Calculator</h1>
         <form asp-action="Index" method="post">
+            <div asp-validation-summary="All"></div>
             <div>
                 <label asp-for="subTotal">Sub Total: </label>
                 <input asp-for="subTotal" />
@@ -24,14 +25,16 @@
             </div>
             <div>
                 <label asp-for="discountTotal">Discount Total: </label>
-                <input value="@ViewBag.discountTotal.toString("C2")" readonly/>
+                <input value="@ViewBag.discountTotal" readonly/>
             </div>
             <div>
                 <label asp-for="grandTotal">Total: </label>
-                <input value="@ViewBag.grandTotal.toString("C2")" readonly/>
+                <input value="@ViewBag.grandTotal" readonly/>
             </div>
-            <button type="submit" value="Calculate"/>
-            <a asp-action="Index">Clear</a>
+            <div>
+                <button type="submit">Calculate</button>
+                <a asp-action="Index">Clear</a>
+            </div>
         </form>
     </body>
 </html>

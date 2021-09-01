@@ -16,7 +16,7 @@ namespace PriceDiscount.Model
         public double? discountPercent { get; set; }
         public double? discountTotal { get; set; }
         public double? grandTotal { get; set; }
-        public double calculateDiscountTotal()
+        public double? calculateDiscountTotal()
         {
             double total;
             double discount;
@@ -27,7 +27,7 @@ namespace PriceDiscount.Model
             return total;
         }
 
-        public double calculateGrandTotal()
+        public double? calculateGrandTotal()
         {
             double discount;
             double totalDiscount;

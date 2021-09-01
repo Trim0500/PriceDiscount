@@ -22,8 +22,16 @@ namespace PriceDiscount.Controllers
         [HttpPost]
         public IActionResult Index(Price model)
         {
-            ViewBag.discountTotal = model.calculateDiscountTotal();
-            ViewBag.grandTotal = model.calculateGrandTotal();
+            if(ModelState.IsValid)
+            {
+                ViewBag.discountTotal = model.calculateDiscountTotal();
+                ViewBag.grandTotal = model.calculateGrandTotal();
+            }
+            else
+            {
+                ViewBag.discountTotal = 0;
+                ViewBag.grandTotal = 0;
+            }
             return View(model);
         }
     }

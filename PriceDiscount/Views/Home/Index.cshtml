@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Price
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Price Calculator</title>
+    </head>
+    <body>
+        <h1>Price Calculator</h1>
+        <form asp-action="Index" method="post">
+            <div>
+                <label asp-for="subTotal">Sub Total: </label>
+                <input asp-for="subTotal" />
+            </div>
+            <div>
+                <label asp-for="discountPercent">Discount: </label>
+                <input asp-for="discountPercent" />
+            </div>
+            <div>
+                <label asp-for="discountTotal">Discount Total: </label>
+                <input value="@ViewBag.discountTotal.toString("C2")" readonly/>
+            </div>
+            <div>
+                <label asp-for="grandTotal">Total: </label>
+                <input value="@ViewBag.grandTotal.toString("C2")" readonly/>
+            </div>
+            <button type="submit" value="Calculate"/>
+            <a asp-action="Index">Clear</a>
+        </form>
+    </body>
+</html>

@@ -13,27 +13,27 @@
     </head>
     <body>
         <h1>Price Calculator</h1>
-        <form asp-action="Index" method="post">
-            <div asp-validation-summary="All"></div>
+        <form asp-action="Index" method="post"> <!-- Use the asp data declarations from the view imports to declare an action. Load the index page through http get -->
+            <div asp-validation-summary="All"></div> <!-- create a seperate div for the validation messages -->
             <div>
-                <label asp-for="subTotal">Sub Total: </label>
-                <input asp-for="subTotal" />
+                <label asp-for="subTotal">Sub Total: </label> <!-- use the for tag helper mapped to the sub total field -->
+                <input asp-for="subTotal" /> <!-- use an input tag for the sub total field -->
             </div>
             <div>
-                <label asp-for="discountPercent">Discount: </label>
-                <input asp-for="discountPercent" />
+                <label asp-for="discountPercent">Discount: </label> <!-- use the for tag helper mapped to the discount percent field -->
+                <input asp-for="discountPercent" /> <!-- use an input tag for the discount percent field -->
             </div>
             <div>
-                <label asp-for="discountTotal">Discount Total: </label>
-                <input value="@ViewBag.discountTotal" readonly/>
+                <label asp-for="discountTotal">Discount Total: </label> <!-- use the for tag helper mapped to the discount total field -->
+                <input value="@ViewBag.discountTotal" readonly /> <!-- Create a read only field mapped to the dscount total function -->
             </div>
             <div>
-                <label asp-for="grandTotal">Total: </label>
-                <input value="@ViewBag.grandTotal" readonly/>
+                <label asp-for="grandTotal">Total: </label> <!-- use the for tag helper mapped to the grand total field -->
+                <input value="@ViewBag.grandTotal" readonly /> <!-- Create a read only field mapped to the grand total function -->
             </div>
             <div>
-                <button type="submit">Calculate</button>
-                <a asp-action="Index">Clear</a>
+                <button type="submit">Calculate</button> <!-- Create a button to fire of the http post method declared in the controller -->
+                <a asp-action="Index">Clear</a> <!-- Use an anchor tag to fire the http get method declared in the controller -->
             </div>
         </form>
     </body>
